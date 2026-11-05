@@ -1,0 +1,53 @@
+[gd_scene format=3 uid="uid://lrhrdcbttgtr"]
+
+[node name="Main" type="Node" unique_id=2088889925]
+
+[node name="UI" type="CanvasLayer" parent="." unique_id=1822617330]
+
+[node name="MainMenu" type="Control" parent="UI" unique_id=2098775323]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/MainMenu" unique_id=2047703225]
+layout_mode = 0
+offset_right = 181.0
+offset_bottom = 66.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/MainMenu/VBoxContainer" unique_id=1050551960]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="UI/MainMenu/VBoxContainer/HBoxContainer" unique_id=1128525696]
+layout_mode = 2
+text = "Join
+"
+
+[node name="TextEdit" type="TextEdit" parent="UI/MainMenu/VBoxContainer/HBoxContainer" unique_id=169427512]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "1234556"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="UI/MainMenu/VBoxContainer" unique_id=1665654742]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="UI/MainMenu/VBoxContainer/HBoxContainer2" unique_id=2140082151]
+layout_mode = 2
+text = "Host
+
+"
+
+[node name="TextEdit" type="TextEdit" parent="UI/MainMenu/VBoxContainer/HBoxContainer2" unique_id=710771123]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "1234556"
+
+[node name="World" type="Node2D" parent="." unique_id=24832661]
+
+[node name="Level" type="Node" parent="World" unique_id=78382375]
+
+[node name="Players" type="Node" parent="World" unique_id=1892720186]
+
+[node name="Enemies" type="Node" parent="World" unique_id=986685382]
+
+[node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="World" unique_id=763457235]
