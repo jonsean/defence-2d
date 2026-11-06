@@ -1,6 +1,11 @@
 [gd_scene format=3 uid="uid://lrhrdcbttgtr"]
 
+[ext_resource type="Script" uid="uid://bvck2gb3u7mi1" path="res://Scenes/main.gd" id="1_jjgbg"]
+[ext_resource type="PackedScene" uid="uid://dhoif5owockic" path="res://Scenes/char/char.tscn" id="2_bo1nx"]
+
 [node name="Main" type="Node" unique_id=2088889925]
+script = ExtResource("1_jjgbg")
+player_scene = ExtResource("2_bo1nx")
 
 [node name="UI" type="CanvasLayer" parent="." unique_id=1822617330]
 
@@ -51,3 +56,5 @@ text = "1234556"
 [node name="Enemies" type="Node" parent="World" unique_id=986685382]
 
 [node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="World" unique_id=763457235]
+_spawnable_scenes = PackedStringArray("uid://dhoif5owockic")
+spawn_path = NodePath("../Players")
