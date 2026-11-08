@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dc8d23t6j6x8s"]
 
 [ext_resource type="Script" uid="uid://buv8jb1bbkac7" path="res://scenes/menu_scenes/key_bind_panel.gd" id="1_jtgvu"]
-[ext_resource type="PackedScene" uid="uid://b4dc6mfm4jrni" path="res://Scenes/menu_scenes/key_bind_row.tscn" id="2_2cj5y"]
+[ext_resource type="PackedScene" uid="uid://b4dc6mfm4jrni" path="res://scenes/menu_scenes/key_bind_row.tscn" id="2_2cj5y"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k8vy5"]
 bg_color = Color(0.6, 0.6, 0.6, 0)

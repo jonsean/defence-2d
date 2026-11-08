@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://b3bygaw66r730"]
 
-[ext_resource type="Script" uid="uid://dggedx0tmse45" path="res://Scenes/menu_scenes/join_host_menu.gd" id="1_2v7o7"]
+[ext_resource type="Script" uid="uid://dggedx0tmse45" path="res://scenes/menu_scenes/join_host_menu.gd" id="1_2v7o7"]
 
 [node name="JoinHostMenu" type="PanelContainer" unique_id=261696271]
 offset_right = 192.0

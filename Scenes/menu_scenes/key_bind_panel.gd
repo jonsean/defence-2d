@@ -13,13 +13,6 @@ func _ready() -> void:
 	get_custom_key_bindings()
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-
-func create_menu_row(action, current_key) -> void:
-	pass
-
 func get_custom_key_bindings() -> void:
 	var all_actions = InputMap.get_actions()
 	
