@@ -1,0 +1,120 @@
+[gd_scene format=3 uid="uid://dc8d23t6j6x8s"]
+
+[ext_resource type="Script" uid="uid://buv8jb1bbkac7" path="res://scenes/menu_scenes/key_bind_panel.gd" id="1_jtgvu"]
+[ext_resource type="PackedScene" uid="uid://b4dc6mfm4jrni" path="res://Scenes/menu_scenes/key_bind_row.tscn" id="2_2cj5y"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k8vy5"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0, 0, 0, 1)
+
+[node name="KeyBindPanel" type="PanelContainer" unique_id=446438342]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_k8vy5")
+script = ExtResource("1_jtgvu")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=218750302]
+layout_mode = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer" unique_id=295539924]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer/PanelContainer" unique_id=1596296979]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/PanelContainer/ScrollContainer" unique_id=117712195]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer/PanelContainer/ScrollContainer/HBoxContainer" unique_id=46710105]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/PanelContainer/ScrollContainer/HBoxContainer/PanelContainer" unique_id=1806513309]
+layout_mode = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/PanelContainer/ScrollContainer/HBoxContainer/PanelContainer/MarginContainer" unique_id=979052725]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer/PanelContainer/ScrollContainer/HBoxContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=384688060]
+layout_mode = 2
+theme_override_constants/separation = 100
+
+[node name="Label" type="Label" parent="VBoxContainer/PanelContainer/ScrollContainer/HBoxContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2" unique_id=77463572]
+layout_mode = 2
+text = "Discription"
+
+[node name="Panel" type="Panel" parent="VBoxContainer/PanelContainer/ScrollContainer/HBoxContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2" unique_id=2035318591]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Labe1" type="Label" parent="VBoxContainer/PanelContainer/ScrollContainer/HBoxContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2" unique_id=734278083]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+text = "Primary Control"
+
+[node name="Label2" type="Label" parent="VBoxContainer/PanelContainer/ScrollContainer/HBoxContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2" unique_id=1166217080]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+text = "Alternat Control"
+
+[node name="MenuTable" type="VBoxContainer" parent="VBoxContainer/PanelContainer/ScrollContainer/HBoxContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=1381856638]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/PanelContainer/ScrollContainer/HBoxContainer/PanelContainer/MarginContainer/VBoxContainer/MenuTable" unique_id=1025674915]
+visible = false
+layout_mode = 2
+theme_override_constants/separation = 100
+
+[node name="Label" type="Label" parent="VBoxContainer/PanelContainer/ScrollContainer/HBoxContainer/PanelContainer/MarginContainer/VBoxContainer/MenuTable/HBoxContainer" unique_id=412708814]
+layout_mode = 2
+theme_override_font_sizes/font_size = 23
+text = "Ships Linear Thrust"
+
+[node name="Panel" type="Panel" parent="VBoxContainer/PanelContainer/ScrollContainer/HBoxContainer/PanelContainer/MarginContainer/VBoxContainer/MenuTable/HBoxContainer" unique_id=625263471]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="key_bind_row" parent="VBoxContainer/PanelContainer/ScrollContainer/HBoxContainer/PanelContainer/MarginContainer/VBoxContainer/MenuTable" unique_id=92537781 instance=ExtResource("2_2cj5y")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="PanelContainer3" type="PanelContainer" parent="VBoxContainer" unique_id=1288364623]
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/PanelContainer3" unique_id=2073397764]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="VBoxContainer/PanelContainer3/HBoxContainer" unique_id=1993071244]
+layout_mode = 2
+text = "Button one"
+
+[node name="Button2" type="Button" parent="VBoxContainer/PanelContainer3/HBoxContainer" unique_id=129877681]
+layout_mode = 2
+text = "Button two"
+
+[node name="Button3" type="Button" parent="VBoxContainer/PanelContainer3/HBoxContainer" unique_id=778838025]
+layout_mode = 2
+text = "Button three"
+
+[node name="Button4" type="Button" parent="VBoxContainer/PanelContainer3/HBoxContainer" unique_id=188079679]
+layout_mode = 2
+text = "Button four"

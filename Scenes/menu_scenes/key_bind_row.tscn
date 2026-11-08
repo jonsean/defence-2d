@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://b4dc6mfm4jrni"]
+
+[ext_resource type="Script" uid="uid://vdhk1bimwr5" path="res://scenes/menu_scenes/key_bind_row.gd" id="1_ja7vn"]
+
+[node name="key_bind_row" type="HBoxContainer" unique_id=1088949081]
+visible = false
+theme_override_constants/separation = 100
+script = ExtResource("1_ja7vn")
+
+[node name="ActionLabel" type="Label" parent="." unique_id=649293121]
+layout_mode = 2
+text = "thrust_main"
+
+[node name="Panel" type="Panel" parent="." unique_id=673019480]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="KeyButton" type="Button" parent="." unique_id=1825608497]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+focus_mode = 1
+text = "Shift"
+alignment = 0
+
+[node name="AltKeyButton" type="Button" parent="." unique_id=1116346562]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+focus_mode = 1
+alignment = 0
+
+[node name="UnbindButton" type="Button" parent="." unique_id=1424553004]
+layout_mode = 2
+text = "Unbind"
+
+[connection signal="pressed" from="KeyButton" to="." method="_on_key_button_pressed"]
+[connection signal="pressed" from="AltKeyButton" to="." method="_on_alt_key_button_pressed"]
+[connection signal="pressed" from="UnbindButton" to="." method="_on_unbind_button_pressed"]

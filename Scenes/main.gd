@@ -1,19 +1,21 @@
 extends Node
 
-const PORT = 8910
-const DEFAULT_SERVER_IP = "127.0.0.1" # Localhost for testing
+var PORT = 8910
+var DEFAULT_SERVER_IP = "127.0.0.1" # Localhost for testing
 
 @export var player_scene: PackedScene
 
-@onready var ui: CanvasLayer = $UI
+@onready var menu: Control = $UI/MainMenu
 @onready var players_container: Node = $World/Players
 
 func _ready() -> void:
-	# Optional: If you want to auto-host/join via command-line arguments for testing
-	if "--server" in OS.get_cmdline_args():
-		_on_host_pressed()
+	%PortLabel.text = str(PORT)
+	Events.host_button_signal.connect(_on_host_pressed)
+	Events.join_button_signal.connect(_on_join_pressed)
 # Call this when the user clicks a "Host" button in your UI
-func _on_host_pressed() -> void:
+func _on_host_pressed(port) -> void:
+	PORT = port
+	%PortLabel.text = str(PORT)
 	var peer = ENetMultiplayerPeer.new()
 	var error = peer.create_server(PORT, 4) # Max 4 players
 	if error != OK:
@@ -21,7 +23,7 @@ func _on_host_pressed() -> void:
 		return
 	
 	multiplayer.multiplayer_peer = peer
-	ui.hide() # Hide lobby UI once connected
+	menu.hide() # Hide lobby UI once connected
 	
 	# Connect signals to handle players joining and leaving
 	multiplayer.peer_connected.connect(_on_peer_connected)
@@ -37,9 +39,9 @@ func _on_join_pressed(ip: String = DEFAULT_SERVER_IP) -> void:
 	if error != OK:
 		print("Failed to join: ", error)
 		return
-	
+	%AdressLabel.text = ip
 	multiplayer.multiplayer_peer = peer
-	ui.hide()
+	menu.hide()
 	
 	multiplayer.connected_to_server.connect(_on_connected_to_server)
 	multiplayer.connection_failed.connect(_on_connection_failed)
@@ -49,7 +51,7 @@ func _on_connected_to_server() -> void:
 
 func _on_connection_failed() -> void:
 	print("Connection failed.")
-	ui.show()
+	menu.show()
 	multiplayer.multiplayer_peer = null
 
 # SERVER ONLY: When a peer connects, the server instantiates their player

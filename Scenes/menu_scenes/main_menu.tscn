@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://uenih8y1wy5t"]
+
+[ext_resource type="PackedScene" uid="uid://b3bygaw66r730" path="res://Scenes/menu_scenes/join_host_menu.tscn" id="1_sjkk1"]
+
+[node name="MainMenu" type="Control" unique_id=394735473]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=2004854453]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="JoinHostMenu" parent="PanelContainer" unique_id=261696271 instance=ExtResource("1_sjkk1")]
+layout_mode = 2
