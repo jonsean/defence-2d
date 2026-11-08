@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://uenih8y1wy5t"]
 
 [ext_resource type="PackedScene" uid="uid://b3bygaw66r730" path="res://Scenes/menu_scenes/join_host_menu.tscn" id="1_sjkk1"]
+[ext_resource type="PackedScene" uid="uid://dc8d23t6j6x8s" path="res://Scenes/menu_scenes/key_bind_panel.tscn" id="2_b0pqn"]
 
 [node name="MainMenu" type="Control" unique_id=394735473]
 layout_mode = 3
@@ -18,5 +19,13 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="JoinHostMenu" parent="PanelContainer" unique_id=261696271 instance=ExtResource("1_sjkk1")]
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer" unique_id=924863585]
+layout_mode = 2
+
+[node name="JoinHostMenu" parent="PanelContainer/VBoxContainer" unique_id=261696271 instance=ExtResource("1_sjkk1")]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="KeyBindPanel" parent="PanelContainer/VBoxContainer" unique_id=446438342 instance=ExtResource("2_b0pqn")]
 layout_mode = 2

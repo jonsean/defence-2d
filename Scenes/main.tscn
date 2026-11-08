@@ -11,6 +11,7 @@ player_scene = ExtResource("2_bo1nx")
 [node name="UI" type="CanvasLayer" parent="." unique_id=1822617330]
 
 [node name="MainMenu" parent="UI" unique_id=394735473 instance=ExtResource("3_8gbba")]
+unique_name_in_owner = true
 
 [node name="PortLabel" type="Label" parent="UI" unique_id=1319026472]
 unique_name_in_owner = true
