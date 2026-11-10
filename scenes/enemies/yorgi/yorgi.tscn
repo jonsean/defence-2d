@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://cksott12ry645"]
+
+[ext_resource type="Script" uid="uid://b6cbyi3hi0ren" path="res://scenes/enemies/yorgi/yorgi.gd" id="1_d23ep"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_g3hwg"]
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_xqtii"]
+properties/0/path = NodePath(".:position")
+properties/0/spawn = true
+properties/0/replication_mode = 1
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_nvpp8"]
+radius = 200.0
+
+[node name="Yorgi" type="RigidBody2D" unique_id=849074878]
+mass = 0.1
+script = ExtResource("1_d23ep")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1729149852]
+shape = SubResource("CircleShape2D_g3hwg")
+
+[node name="Polygon2D" type="Polygon2D" parent="." unique_id=411881682]
+color = Color(0, 0.6509804, 0.5176471, 1)
+polygon = PackedVector2Array(0, -10, 7, -7, 10, 0, 7, 7, 0, 10, -7, 7, -10, 0, -7, -7)
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="." unique_id=408293233]
+replication_config = SubResource("SceneReplicationConfig_xqtii")
+
+[node name="AgroRangeArea2D" type="Area2D" parent="." unique_id=233979299]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AgroRangeArea2D" unique_id=1684533547]
+shape = SubResource("CircleShape2D_nvpp8")
+
+[node name="TargetTimer" type="Timer" parent="." unique_id=137970214]
+autostart = true
+
+[connection signal="body_entered" from="AgroRangeArea2D" to="." method="_on_agro_range_area_2d_body_entered"]
+[connection signal="body_exited" from="AgroRangeArea2D" to="." method="_on_agro_range_area_2d_body_exited"]
+[connection signal="timeout" from="TargetTimer" to="." method="_on_target_timer_timeout"]

@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://bvck2gb3u7mi1" path="res://scenes/main.gd" id="1_jjgbg"]
 [ext_resource type="PackedScene" uid="uid://dhoif5owockic" path="res://scenes/char/char.tscn" id="2_bo1nx"]
 [ext_resource type="PackedScene" uid="uid://uenih8y1wy5t" path="res://scenes/menu_scenes/main_menu.tscn" id="3_8gbba"]
+[ext_resource type="PackedScene" uid="uid://cksott12ry645" path="res://scenes/enemies/yorgi/yorgi.tscn" id="4_jyhfs"]
 
 [node name="Main" type="Node" unique_id=2088889925]
 script = ExtResource("1_jjgbg")
@@ -35,6 +36,9 @@ offset_bottom = 23.0
 [node name="Players" type="Node" parent="World" unique_id=1892720186]
 
 [node name="Enemies" type="Node" parent="World" unique_id=986685382]
+
+[node name="Yorgi" parent="World/Enemies" unique_id=849074878 instance=ExtResource("4_jyhfs")]
+position = Vector2(526, 328)
 
 [node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="World" unique_id=763457235]
 _spawnable_scenes = PackedStringArray("uid://dhoif5owockic")
