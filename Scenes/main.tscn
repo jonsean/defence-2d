@@ -35,11 +35,11 @@ offset_bottom = 23.0
 
 [node name="Players" type="Node" parent="World" unique_id=1892720186]
 
+[node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="World/Players" unique_id=763457235]
+_spawnable_scenes = PackedStringArray("uid://dhoif5owockic")
+spawn_path = NodePath("..")
+
 [node name="Enemies" type="Node" parent="World" unique_id=986685382]
 
 [node name="Yorgi" parent="World/Enemies" unique_id=849074878 instance=ExtResource("4_jyhfs")]
 position = Vector2(526, 328)
-
-[node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="World" unique_id=763457235]
-_spawnable_scenes = PackedStringArray("uid://dhoif5owockic")
-spawn_path = NodePath("../Players")
