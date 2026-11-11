@@ -33,6 +33,8 @@ func _on_host_pressed(port) -> void:
 	multiplayer.peer_connected.connect(_on_peer_connected)
 	multiplayer.peer_disconnected.connect(_on_peer_disconnected)
 	
+	Global.isHost = true
+	Global.isClient = false
 	# The host spawns their own player locally
 	_on_peer_connected(1)
 
@@ -49,6 +51,8 @@ func _on_join_pressed(ip: String = DEFAULT_SERVER_IP) -> void:
 	
 	multiplayer.connected_to_server.connect(_on_connected_to_server)
 	multiplayer.connection_failed.connect(_on_connection_failed)
+	Global.isClient = true
+	Global.isHost = false
 
 func _on_connected_to_server() -> void:
 	print("Successfully connected to the server!")
