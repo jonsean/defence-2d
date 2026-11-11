@@ -10,7 +10,7 @@ extends RigidBody2D
 
 var targets: Array[Node2D]
 
-func _ready() -> void:
+func _enter_tree() -> void:
 	# Enemies are controlled by the server (Peer ID 1)
 	set_multiplayer_authority(1)
 
