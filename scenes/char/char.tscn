@@ -5,7 +5,7 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_g3hwg"]
 
 [sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_suv8k"]
-properties/0/path = NodePath(".:position")
+properties/0/path = NodePath(".:gloabl_posistion")
 properties/0/spawn = true
 properties/0/replication_mode = 1
 
