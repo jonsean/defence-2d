@@ -11,7 +11,7 @@ func _enter_tree() -> void:
 		set_multiplayer_authority(peer_id)
 		# Crucial: Give the synchronizer authority to match the player!
 		$MultiplayerSynchronizer.set_multiplayer_authority(peer_id)
-
+	
 func _physics_process(_delta: float) -> void:
 	if not is_multiplayer_authority():
 		return
