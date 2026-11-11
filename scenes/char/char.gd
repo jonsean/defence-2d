@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 
-@export var speed = 9000.0
+@export var speed = 300.0
 @export var targetPriority = 1
 
 
@@ -21,12 +21,11 @@ func _physics_process(_delta: float) -> void:
 	var direction := Input.get_vector("MoveLeft", "MoveRight", "MoveUp", "MoveDown")
 	print("Direction: ", direction)
 	
-	var rel_speed = speed * _delta
 	if direction:
-		velocity = direction * rel_speed 
+		velocity = direction * speed 
 	else:
-		velocity.x = move_toward(velocity.x, 0, rel_speed)
-		velocity.y = move_toward(velocity.y, 0, rel_speed)
+		velocity.x = move_toward(velocity.x, 0, speed)
+		velocity.y = move_toward(velocity.y, 0, speed)
 
 
 	move_and_slide()
