@@ -4,6 +4,7 @@ extends CharacterBody2D
 @export var speed = 300.0
 @export var targetPriority = 1
 
+var control_taken = false
 
 func _enter_tree() -> void:
 	var peer_id = name.to_int()
@@ -27,5 +28,5 @@ func _physics_process(_delta: float) -> void:
 		velocity.x = move_toward(velocity.x, 0, speed)
 		velocity.y = move_toward(velocity.y, 0, speed)
 
-
-	move_and_slide()
+	if control_taken:
+		move_and_slide()
