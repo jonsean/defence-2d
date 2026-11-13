@@ -12,6 +12,6 @@ func _ready() -> void:
 func fire_projectile(direction: Vector2, origin: Vector2):
 	var bullet = bullet_scene.instantiate()
 	bullet.linear_velocity = direction * bullet_speed
-	var startPos:Vector2 = origin + direction * origin_buffer
+	var startPos:Vector2 = origin
 	bullet.global_position = startPos
 	add_child(bullet)

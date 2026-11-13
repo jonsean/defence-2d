@@ -1,6 +1,6 @@
 extends RigidBody2D
 
-@export var speed = 8000
+@export var speed = 100
 
 @export var final_target:  Vector2 = Vector2(500,500)
 @export var final_target_node: Node2D
@@ -39,7 +39,7 @@ func _physics_process(_delta: float) -> void:
 	# 2. Normalize the vector to get a clean direction (length of 1)
 	var direction = to_target.normalized()
 	# 3. Apply foce
-	linear_velocity = direction * speed * _delta
+	linear_velocity = direction * speed 
 
 func update_target() -> void:
 	if targets.size() == 0:
