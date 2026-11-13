@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://bfw7uk7ahynlp"]
+
+[ext_resource type="PackedScene" uid="uid://dwj14io3318i4" path="res://scenes/damage_sources/damage_area_good.tscn" id="1_0px24"]
+[ext_resource type="Script" uid="uid://cqdaot10lmg1w" path="res://scenes/damage_sources/bb.gd" id="1_hvkbw"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_g3hwg"]
+radius = 2.0
+
+[node name="BB" type="RigidBody2D" unique_id=435735095]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_hvkbw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=370218959]
+shape = SubResource("CircleShape2D_g3hwg")
+
+[node name="Polygon2D" type="Polygon2D" parent="." unique_id=927129685]
+color = Color(0, 0, 0, 1)
+polygon = PackedVector2Array(0, -2, 1, -2, 2, -1, 2, 0, 2, 1, 1, 2, 0, 2, -1, 2, -2, 1, -2, 0, -2, -1, -1, -2)
+
+[node name="DamageAreaGood" parent="." unique_id=67418738 instance=ExtResource("1_0px24")]
+
+[connection signal="hit" from="DamageAreaGood" to="." method="_on_damage_area_hit"]

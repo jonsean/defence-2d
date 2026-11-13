@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://dwj14io3318i4"]
+
+[ext_resource type="Script" uid="uid://iyo4h5bdyyai" path="res://scenes/damage_sources/damage_area_good.gd" id="1_yncmo"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_g3hwg"]
+radius = 2.0
+
+[node name="DamageAreaGood" type="Area2D" unique_id=67418738]
+collision_mask = 2
+script = ExtResource("1_yncmo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1375204942]
+shape = SubResource("CircleShape2D_g3hwg")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -6,14 +6,24 @@ extends RigidBody2D
 @export var final_target_node: Node2D
 @export var current_target: Vector2 = Vector2(500,500)
 @export var current_target_node: Node2D
+@export var health = 10
 
+var targetable = true
 
 var targets: Array[Node2D]
 
 func _enter_tree() -> void:
 	# Enemies are controlled by the server (Peer ID 1)
 	set_multiplayer_authority(1)
+func take_damage(dmg:int = 1) -> void:
+	health -= dmg
+	if health <= 0:
+		death()
 
+func death() -> void: 
+	Global.yorgiCount -= 1
+	queue_free()
+	
 func _physics_process(_delta: float) -> void:
 	# Only the server runs enemy AI and movement logic
 	if not is_multiplayer_authority():

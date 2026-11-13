@@ -5,8 +5,10 @@
 [ext_resource type="PackedScene" uid="uid://uenih8y1wy5t" path="res://scenes/menu_scenes/main_menu.tscn" id="3_8gbba"]
 [ext_resource type="PackedScene" uid="uid://cksott12ry645" path="res://scenes/enemies/yorgi/yorgi.tscn" id="4_jyhfs"]
 [ext_resource type="Script" uid="uid://dcrns0a7h68uy" path="res://scenes/enemies.gd" id="4_tbgi4"]
+[ext_resource type="Script" uid="uid://q5icc0sj6k8k" path="res://scenes/projectiles.gd" id="6_tefeu"]
+[ext_resource type="PackedScene" uid="uid://bfw7uk7ahynlp" path="res://scenes/damage_sources/bb.tscn" id="7_o6xl0"]
 
-[node name="Main" type="Node" unique_id=2088889925]
+[node name="Main" type="Node" unique_id=77812613]
 script = ExtResource("1_jjgbg")
 player_scene = ExtResource("2_bo1nx")
 
@@ -50,5 +52,9 @@ spawn_path = NodePath("..")
 
 [node name="SpawnTimer" type="Timer" parent="World/Enemies" unique_id=1229442138]
 autostart = true
+
+[node name="Projectiles" type="Node" parent="World" unique_id=2128389103]
+script = ExtResource("6_tefeu")
+bullet_scene = ExtResource("7_o6xl0")
 
 [connection signal="timeout" from="World/Enemies/SpawnTimer" to="World/Enemies" method="_on_spawn_timer_timeout"]

@@ -8,14 +8,15 @@ var DEFAULT_SERVER_IP = "127.0.0.1" # Localhost for testing
 @onready var menu: Control = $UI/MainMenu
 @onready var players_container: Node = $World/Players
 
-func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("Menu"):
-		%MainMenu.visible = !%MainMenu.visible
-
 func _ready() -> void:
 	%PortLabel.text = str(PORT)
 	Events.host_button_signal.connect(_on_host_pressed)
 	Events.join_button_signal.connect(_on_join_pressed)
+	
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("Menu"):
+		%MainMenu.visible = !%MainMenu.visible
+
 # Call this when the user clicks a "Host" button in your UI
 func _on_host_pressed(port) -> void:
 	PORT = port

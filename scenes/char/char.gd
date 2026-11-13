@@ -4,7 +4,10 @@ extends CharacterBody2D
 @export var speed = 300.0
 @export var targetPriority = 1
 
+
 var control_taken = false
+
+var has_target = false
 
 func _enter_tree() -> void:
 	var peer_id = name.to_int()
@@ -13,6 +16,8 @@ func _enter_tree() -> void:
 		# Crucial: Give the synchronizer authority to match the player!
 		$MultiplayerSynchronizer.set_multiplayer_authority(peer_id)
 	
+	
+
 func _physics_process(_delta: float) -> void:
 	if not is_multiplayer_authority():
 		return
@@ -33,3 +38,24 @@ func _physics_process(_delta: float) -> void:
 	
 	if control_taken or peers == 0:
 		move_and_slide()
+
+
+func _on_enemy_targeting_area_target_accuired() -> void:
+	has_target = true
+
+
+func _on_enemy_targeting_area_target_lost() -> void:
+	has_target = false
+
+func _on_gun_timer_timeout() -> void:
+	if has_target:
+		shoot()
+
+func shoot() -> void:
+	var target:Node2D = $EnemyTargetingArea.get_target()
+	if target == null:
+		return
+	var to_target:Vector2 = target.global_position - global_position
+	var direction = to_target.normalized()
+
+	Events.projectile_fired.emit(direction, global_position)

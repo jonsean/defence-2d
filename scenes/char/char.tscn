@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dhoif5owockic"]
 
 [ext_resource type="Script" uid="uid://b8a2b2vsebi6m" path="res://scenes/char/char.gd" id="1_suv8k"]
+[ext_resource type="PackedScene" uid="uid://cepakrmygu0hg" path="res://scenes/damage_sources/enemy_targeting_area.tscn" id="3_k7bwm"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_g3hwg"]
 
@@ -23,3 +24,13 @@ offset_bottom = 10.0
 
 [node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="." unique_id=1717997950]
 replication_config = SubResource("SceneReplicationConfig_suv8k")
+
+[node name="EnemyTargetingArea" parent="." unique_id=1856165713 instance=ExtResource("3_k7bwm")]
+
+[node name="GunTimer" type="Timer" parent="." unique_id=1663341981]
+wait_time = 0.25
+autostart = true
+
+[connection signal="target_accuired" from="EnemyTargetingArea" to="." method="_on_enemy_targeting_area_target_accuired"]
+[connection signal="target_lost" from="EnemyTargetingArea" to="." method="_on_enemy_targeting_area_target_lost"]
+[connection signal="timeout" from="GunTimer" to="." method="_on_gun_timer_timeout"]
