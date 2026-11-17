@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://dcrns0a7h68uy" path="res://scenes/enemies.gd" id="4_tbgi4"]
 [ext_resource type="Script" uid="uid://q5icc0sj6k8k" path="res://scenes/projectiles.gd" id="6_tefeu"]
 [ext_resource type="PackedScene" uid="uid://bfw7uk7ahynlp" path="res://scenes/damage_sources/bb.tscn" id="7_o6xl0"]
+[ext_resource type="Script" uid="uid://bh1r7cij1bbku" path="res://scenes/constructs.gd" id="8_tipki"]
 
 [node name="Main" type="Node" unique_id=77812613]
 script = ExtResource("1_jjgbg")
@@ -16,6 +17,7 @@ player_scene = ExtResource("2_bo1nx")
 
 [node name="MainMenu" parent="UI" unique_id=394735473 instance=ExtResource("3_8gbba")]
 unique_name_in_owner = true
+visible = false
 
 [node name="PortLabel" type="Label" parent="UI" unique_id=1319026472]
 unique_name_in_owner = true
@@ -56,5 +58,15 @@ autostart = true
 [node name="Projectiles" type="Node" parent="World" unique_id=2128389103]
 script = ExtResource("6_tefeu")
 bullet_scene = ExtResource("7_o6xl0")
+
+[node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="World/Projectiles" unique_id=1360720918]
+_spawnable_scenes = PackedStringArray("uid://bfw7uk7ahynlp")
+spawn_path = NodePath("..")
+
+[node name="Constructs" type="Node" parent="World" unique_id=197458694]
+script = ExtResource("8_tipki")
+
+[node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="World/Constructs" unique_id=743594493]
+spawn_path = NodePath("..")
 
 [connection signal="timeout" from="World/Enemies/SpawnTimer" to="World/Enemies" method="_on_spawn_timer_timeout"]

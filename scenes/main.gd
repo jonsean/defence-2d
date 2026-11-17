@@ -71,7 +71,7 @@ func _on_peer_connected(id: int) -> void:
 	if multiplayer.is_server():
 		var player_instance = player_scene.instantiate()
 		player_instance.name = str(id) # Crucial: Name the node after the peer ID for synchronization
-		players_container.add_child(player_instance, true)
+		add_player(player_instance)
 
 # SERVER ONLY: When a peer disconnects, remove their player
 func _on_peer_disconnected(id: int) -> void:
@@ -79,4 +79,16 @@ func _on_peer_disconnected(id: int) -> void:
 	if multiplayer.is_server():
 		var player_node = players_container.get_node_or_null(str(id))
 		if player_node:
+			Global.char_list.errase(player_node)
 			player_node.queue_free()
+
+func add_player(player_instance: Node):
+	players_container.add_child(player_instance, true)
+	Global.charList.append(player_instance)
+	
+	
+	
+	
+	
+	
+	

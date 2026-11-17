@@ -2,6 +2,9 @@
 
 [ext_resource type="Script" uid="uid://b8a2b2vsebi6m" path="res://scenes/char/char.gd" id="1_suv8k"]
 [ext_resource type="PackedScene" uid="uid://cepakrmygu0hg" path="res://scenes/damage_sources/enemy_targeting_area.tscn" id="3_k7bwm"]
+[ext_resource type="Texture2D" uid="uid://doweg57tfw4jj" path="res://scenes/char/Infantryman/Idle.png" id="3_v1b8x"]
+[ext_resource type="Texture2D" uid="uid://5bngccxv8x6l" path="res://scenes/char/Infantryman/Walk.png" id="4_47yqu"]
+[ext_resource type="PackedScene" uid="uid://bl3dfgpswqq52" path="res://scenes/misc/health_bar.tscn" id="5_47yqu"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_g3hwg"]
 
@@ -10,18 +13,108 @@ properties/0/path = NodePath(".:global_position")
 properties/0/spawn = true
 properties/0/replication_mode = 1
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_r51mm"]
+atlas = ExtResource("3_v1b8x")
+region = Rect2(153, 56, 72, 72)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mnb7s"]
+atlas = ExtResource("3_v1b8x")
+region = Rect2(281, 56, 72, 72)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3ue3b"]
+atlas = ExtResource("3_v1b8x")
+region = Rect2(409, 56, 72, 72)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qaw6e"]
+atlas = ExtResource("3_v1b8x")
+region = Rect2(537, 56, 72, 72)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lehj7"]
+atlas = ExtResource("3_v1b8x")
+region = Rect2(665, 56, 72, 72)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0obu0"]
+atlas = ExtResource("3_v1b8x")
+region = Rect2(25, 56, 72, 72)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xqdwx"]
+atlas = ExtResource("4_47yqu")
+region = Rect2(25, 56, 72, 72)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qcybd"]
+atlas = ExtResource("4_47yqu")
+region = Rect2(153, 56, 72, 72)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_leu2r"]
+atlas = ExtResource("4_47yqu")
+region = Rect2(281, 56, 72, 72)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0rs0e"]
+atlas = ExtResource("4_47yqu")
+region = Rect2(409, 56, 72, 72)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ofsy8"]
+atlas = ExtResource("4_47yqu")
+region = Rect2(537, 56, 72, 72)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_40f3a"]
+atlas = ExtResource("4_47yqu")
+region = Rect2(665, 56, 72, 72)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_g3hwg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r51mm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mnb7s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3ue3b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qaw6e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lehj7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0obu0")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xqdwx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qcybd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_leu2r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0rs0e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ofsy8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_40f3a")
+}],
+"loop": 1,
+"name": &"walking",
+"speed": 15.0
+}]
+
 [node name="Char" type="CharacterBody2D" unique_id=583802193]
-position = Vector2(500, 500)
 script = ExtResource("1_suv8k")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=19988133]
 shape = SubResource("CircleShape2D_g3hwg")
-
-[node name="ColorRect" type="ColorRect" parent="CollisionShape2D" unique_id=138568540]
-offset_left = -10.0
-offset_top = -10.0
-offset_right = 10.0
-offset_bottom = 10.0
 
 [node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="." unique_id=1717997950]
 replication_config = SubResource("SceneReplicationConfig_suv8k")
@@ -31,6 +124,21 @@ replication_config = SubResource("SceneReplicationConfig_suv8k")
 [node name="GunTimer" type="Timer" parent="." unique_id=1663341981]
 wait_time = 0.25
 autostart = true
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=931004017]
+position_smoothing_enabled = true
+
+[node name="Polygon2D" type="Polygon2D" parent="." unique_id=1198881278]
+color = Color(0.14681765, 0.2195591, 1, 0.2509804)
+polygon = PackedVector2Array(0, -20, 14, -14, 20, 0, 14, 14, 0, 20, -14, 14, -20, 0, -14, -14)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=969368614]
+position = Vector2(-1.3000008, 0)
+scale = Vector2(0.5638889, 0.3)
+sprite_frames = SubResource("SpriteFrames_g3hwg")
+animation = &"idle"
+
+[node name="HealthBar" parent="." unique_id=2055246615 instance=ExtResource("5_47yqu")]
 
 [connection signal="target_accuired" from="EnemyTargetingArea" to="." method="_on_enemy_targeting_area_target_accuired"]
 [connection signal="target_lost" from="EnemyTargetingArea" to="." method="_on_enemy_targeting_area_target_lost"]

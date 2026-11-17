@@ -1,0 +1,74 @@
+[gd_scene format=3 uid="uid://cmvysdmn2iv8f"]
+
+[ext_resource type="PackedScene" uid="uid://1cs8p0dk16ut" path="res://scenes/constructions/turret.tscn" id="1_aw5o4"]
+
+[node name="Control" type="Control" unique_id=1137394308]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TabContainer" type="TabContainer" parent="." unique_id=1933093477]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -203.5
+offset_top = -178.5
+offset_right = 188.0
+offset_bottom = 207.0
+grow_horizontal = 2
+grow_vertical = 2
+current_tab = 0
+
+[node name="Tab1" type="GridContainer" parent="TabContainer" unique_id=192332361]
+layout_mode = 2
+columns = 2
+metadata/_tab_index = 0
+
+[node name="CenterContainer" type="CenterContainer" parent="TabContainer/Tab1" unique_id=1331876531]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="TabContainer/Tab1/CenterContainer" unique_id=1438576954]
+layout_mode = 2
+
+[node name="Turret" parent="TabContainer/Tab1/CenterContainer/MarginContainer" unique_id=786895934 instance=ExtResource("1_aw5o4")]
+
+[node name="ColorRect3" type="ColorRect" parent="TabContainer/Tab1" unique_id=789044445]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+color = Color(1, 0.1764706, 1, 1)
+
+[node name="ColorRect4" type="ColorRect" parent="TabContainer/Tab1" unique_id=805161828]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+color = Color(1, 0.1764706, 1, 1)
+
+[node name="CenterContainer2" type="CenterContainer" parent="TabContainer/Tab1" unique_id=753285802]
+layout_mode = 2
+
+[node name="GridContainer" type="GridContainer" parent="TabContainer" unique_id=616216388]
+visible = false
+layout_mode = 2
+columns = 2
+metadata/_tab_index = 1
+
+[node name="ColorRect" type="ColorRect" parent="TabContainer/GridContainer" unique_id=1050713266]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+
+[node name="ColorRect2" type="ColorRect" parent="TabContainer/GridContainer" unique_id=1222485734]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+
+[node name="ColorRect3" type="ColorRect" parent="TabContainer/GridContainer" unique_id=675202761]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+
+[node name="ColorRect4" type="ColorRect" parent="TabContainer/GridContainer" unique_id=590887566]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2

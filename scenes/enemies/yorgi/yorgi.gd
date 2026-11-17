@@ -6,7 +6,8 @@ extends RigidBody2D
 @export var final_target_node: Node2D
 @export var current_target: Vector2 = Vector2(500,500)
 @export var current_target_node: Node2D
-@export var health = 10
+@export var max_health: float = 100
+@export var current_health: float = max_health
 
 var targetable = true
 
@@ -15,9 +16,21 @@ var targets: Array[Node2D]
 func _enter_tree() -> void:
 	# Enemies are controlled by the server (Peer ID 1)
 	set_multiplayer_authority(1)
+	
+func _ready() ->void: 
+	
+	set_final_target()
+	
+func set_final_target() -> void:
+	var charList = Global.charList
+	if charList.size() > 0:
+		final_target = charList[0].global_position
+	else:
+		final_target = Vector2(0,0)
+		
 func take_damage(dmg:int = 1) -> void:
-	health -= dmg
-	if health <= 0:
+	current_health -= dmg
+	if current_health <= 0:
 		death()
 
 func death() -> void: 
@@ -43,7 +56,7 @@ func _physics_process(_delta: float) -> void:
 
 func update_target() -> void:
 	if targets.size() == 0:
-		current_target = final_target
+		current_target = position
 		current_target_node = null 
 		return
 	current_target_node = targets[0]

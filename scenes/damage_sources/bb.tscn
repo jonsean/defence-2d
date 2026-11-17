@@ -6,6 +6,11 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_g3hwg"]
 radius = 2.0
 
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_hvkbw"]
+properties/0/path = NodePath(".:global_position")
+properties/0/spawn = true
+properties/0/replication_mode = 1
+
 [node name="BB" type="RigidBody2D" unique_id=435735095]
 collision_layer = 2
 collision_mask = 2
@@ -20,5 +25,8 @@ color = Color(0, 0, 0, 1)
 polygon = PackedVector2Array(0, -2, 1, -2, 2, -1, 2, 0, 2, 1, 1, 2, 0, 2, -1, 2, -2, 1, -2, 0, -2, -1, -1, -2)
 
 [node name="DamageAreaGood" parent="." unique_id=67418738 instance=ExtResource("1_0px24")]
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="." unique_id=1230261165]
+replication_config = SubResource("SceneReplicationConfig_hvkbw")
 
 [connection signal="hit" from="DamageAreaGood" to="." method="_on_damage_area_hit"]

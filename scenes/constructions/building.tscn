@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://b5suhtdsypd7e"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_g3hwg"]
+radius = 20.0
+
+[node name="Building" type="StaticBody2D" unique_id=786895934]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2103041500]
+shape = SubResource("CircleShape2D_g3hwg")
+
+[node name="Polygon2D" type="Polygon2D" parent="." unique_id=1617915381]
+color = Color(0.35568058, 0.4286193, 0.80632865, 1)
+polygon = PackedVector2Array(-17, -11, 0, -20, 17, -11, 17, 11, 0, 20, -17, 11)
